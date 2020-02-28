@@ -22,7 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# zipped packages #
+# zipped packages
 *.7z
 *.dmg
 *.gz
@@ -31,3 +31,6 @@ yarn-error.log*
 *.rar
 *.tar
 *.zip
+
+# sensitive info
+/src/hidden
