@@ -1,10 +1,16 @@
+// Main imports
 import React from 'react';
-import logo from './logo.svg';
+import Search from './components/request-btn/search-btn'
+
+// Styling
 import './app.scss';
 
 function App() {
   return (
-    <h1>Hello world!</h1>
+    <>
+      <h1>Hello world!</h1>
+      <Search />
+    </>
   );
 }
 
