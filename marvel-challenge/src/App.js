@@ -1,6 +1,6 @@
 // Main imports
 import React from 'react';
-import Search from './components/request-btn/search-btn'
+import Search from './components/search-btn'
 
 // Styling
 import './app.scss';
