@@ -1,17 +1,29 @@
 // Main imports
 import React from 'react';
-import Search from './components/search-btn'
+import Search from './components/search-btn';
+import SearchBar from './components/SearchBar/search-bar';
+
+import GiphyLogo from './assets/giphy-logo.png';
 
 // Styling
 import './app.scss';
 
-function App() {
+function app() {
   return (
-    <>
-      <h1>Hello world!</h1>
-      <Search />
-    </>
+    <div id='app'>
+      <div className='bg-with-shapes'>
+        <div id='header'>
+          <h1 id='title-text'>SEARCH-A-ROO</h1>
+          <div id='giphy-section'>
+            <h2>POWERED BY</h2>
+            <img src={GiphyLogo} alt='GIPHY'></img>
+          </div>
+        </div>
+        {/* <Search /> */}
+      </div>
+      {SearchBar}
+    </div>
   );
 }
 
-export default App;
+export default app;

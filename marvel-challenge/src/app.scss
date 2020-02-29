@@ -1,4 +1,49 @@
-// Importing other stylesheets
+// Importing fonts and stylesheets
+@import url('https://fonts.googleapis.com/css?family=Heebo&display=swap');
 
+
+// Variables
+$grey-90: #090B0C;
+$grey-80: #121619;
+
+// Global styling rules
+*{
+  margin: 0;
+  padding: 0;
+  color: white;
+}
 
 // App.scss specific stylings
+
+#app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bg-with-shapes{
+  width: 80%;
+  background-color: $grey-90;
+  border-radius: 0 0 50px 50px;
+  padding-bottom: 10px;
+}
+
+#header{
+  padding-top: 64px;
+  // background-color: green;
+  display: flex;
+  flex-direction: row;
+
+  #title-text{
+    font-size: 52px;
+    font-weight: 1000;
+    margin: 0 10px 0 40px;
+  }
+
+  #giphy-section h2{
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 16px;
+  }
+}
+

@@ -10,7 +10,7 @@ class ImageLoader extends Component {
   }
 
   imageError() {
-    this.setState({ imageStatus: "failed to load" });
+    this.setState({ imageStatus: "failed" });
   }
 
   render() {
