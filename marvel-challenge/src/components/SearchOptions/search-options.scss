@@ -1,0 +1,29 @@
+// This div acts akin to a border but needs to exist independently as css doesn't yet support gradient fill borders
+.button-warpper{
+  display: flex;
+  margin-left: 8px;
+  background-image: $diag-gradient;
+  border-radius: 100px;
+  width: 54px*3;
+  padding: 3px;
+}
+
+.filter-button{ 
+  width: 100%;
+  font-size: 32px;
+  border-radius: 100px;
+  border: 4px solid #4E296D;
+  background-image: $diag-gradient-dark;
+
+  img{
+    height: 24px;
+  }
+}
+
+.filter-button:hover{
+  background-image: $diag-gradient-hover;
+}
+
+.filter-button:active{
+  background-image: $diag-gradient-active;
+}

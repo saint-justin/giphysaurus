@@ -1,0 +1,49 @@
+.search-bar-input{
+  display: flex;
+  flex-grow: 1;
+  padding: 16px 32px;
+  font-size: 24px;
+  color: #000;
+  background-color: #FFF;
+  border: none;
+  border-radius: 100px 0 0 100px;;
+}
+
+.button-wrapper{ 
+  border-radius: 0 100px 100px 0;
+  background-color: #FFF;
+  width: 64px;
+}
+
+.search-button{
+  border: 4px solid #FFF;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  background-image: $diag-gradient;
+
+  img {
+    height: 24px;
+    color: white;
+  }
+}
+
+.search-button:hover{
+  background-image: $diag-gradient-dark;
+}
+
+.search-button:active{
+  background-image: $diag-gradient-hover;
+}
+
+// This div acts akin to a border but needs to exist independently as css doesn't yet support gradient fill borders
+.search-border-wrap{
+  display: flex;
+  flex-grow: 1;
+  padding: 4px;
+  border-radius: 100px;
+  background-image: $diag-gradient;
+}

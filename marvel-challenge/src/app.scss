@@ -1,10 +1,23 @@
-// Importing fonts and stylesheets
-@import url('https://fonts.googleapis.com/css?family=Heebo&display=swap');
-
-
 // Variables
 $grey-90: #090B0C;
 $grey-80: #121619;
+$light-pink: #FC66FF;
+$light-blue: #6FD5EF;
+$dark-pink: #BF00C2;
+$dark-blue: #709DDB;
+$hover-pink: #871598;
+$hover-blue: #5586CA;
+$active-pink: #781088;
+$active-blue: #396AAE;
+$diag-gradient: linear-gradient( to bottom right, $light-pink, $light-blue);
+$diag-gradient-dark: linear-gradient( to bottom right, $dark-pink, $dark-blue);
+$diag-gradient-hover: linear-gradient( to bottom right, $hover-pink, $hover-blue);
+$diag-gradient-active: linear-gradient( to bottom right, $active-pink, $active-blue);
+
+// Importing fonts and component stylesheets
+@import url('https://fonts.googleapis.com/css?family=Heebo&display=swap');
+@import './components/SearchBar/search-bar.scss';
+@import './components/SearchOptions/search-options.scss';
 
 // Global styling rules
 *{
@@ -19,25 +32,28 @@ $grey-80: #121619;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Heebo"
 }
 
 .bg-with-shapes{
   width: 80%;
-  background-color: $grey-90;
+  background-image: url('./assets/banner.png');
+  background-size: cover;
   border-radius: 0 0 50px 50px;
   padding-bottom: 10px;
 }
 
 #header{
   padding-top: 64px;
-  // background-color: green;
   display: flex;
   flex-direction: row;
 
   #title-text{
     font-size: 52px;
     font-weight: 1000;
-    margin: 0 10px 0 40px;
+    margin: 0 10px 12px 5%;
+    padding-left: 32px;
+    letter-spacing: 4px;
   }
 
   #giphy-section h2{
@@ -47,3 +63,12 @@ $grey-80: #121619;
   }
 }
 
+.search-row{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-self: center;
+  box-sizing: border-box;
+  padding: 0 5%;
+  margin-bottom: 30px;
+}
