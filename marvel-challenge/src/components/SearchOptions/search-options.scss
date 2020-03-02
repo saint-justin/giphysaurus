@@ -1,5 +1,5 @@
 // This div acts akin to a border but needs to exist independently as css doesn't yet support gradient fill borders
-.button-wrapper{
+.filter-wrapper{
   display: flex;
   margin-left: 8px;
   background-image: $diag-gradient;
@@ -26,4 +26,18 @@
 
 .filter-button:active{
   background-image: $diag-gradient-active;
+}
+
+.search-options-row{
+  width: 90%;
+  margin: auto;
+  background-color: green;
+}
+
+.selected{
+  background-color: orange;
+}
+
+.unselected{
+  background-color: red;
 }

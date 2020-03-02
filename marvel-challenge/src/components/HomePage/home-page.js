@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import SearchBar from '../../components/SearchBar/search-bar';
+import SearchOptionsToggle from '../../components/SearchOptions/search-options-toggle';
 import SearchOptions from '../../components/SearchOptions/search-options';
 import ResultDisplay from '../../components/ResultDisplay/result-display';
 import GiphyLogo from '../../assets/giphy-logo.png';
@@ -14,6 +15,7 @@ const HomePage = () => {
   const [rating, setRating] = useState('G');
   const [query, setQuery] = useState(''); // query is the string that's submitted along with the request, updates every keystroke
   const [searchTerm, setSearchTerm] = useState(''); // searchTerm is the string that's given to the result display, only updates when query submitted 
+  const [showOptions, setShowOptions] = useState(false);
 
   // Functions handling query submission and reception ---
   async function handleSubmit(_query) {
@@ -65,8 +67,9 @@ const HomePage = () => {
             buttonAction={() => handleSubmit(query)}
             keyDown={(e) => handleKeyDown(e)}
           />
-          <SearchOptions id='search-options' />
+          <SearchOptionsToggle id='search-options' />
         </section>
+        {<SearchOptions />}
       </div>
       {data && <ResultDisplay title={`Showing results for '${searchTerm}':`} response={data} />}
     </>
