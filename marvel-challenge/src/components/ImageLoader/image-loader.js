@@ -15,7 +15,7 @@ class ImageLoader extends Component {
 
   render() {
     return (
-      <a className='image-loader'>
+      <a className='image-loader' href={this.props.src}>
         <img
           className='loaded-image'
           src={this.props.link}

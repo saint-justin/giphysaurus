@@ -5,7 +5,7 @@ import filterPath from '../../assets/filter-solid.svg';
 const SearchOptions = () => {
   // const [input, setInput] = useState('');
   return (
-    <div className='button-warpper'>
+    <div className='button-wrapper'>
       <button className='filter-button'>
          <img src={filterPath} alt='Search' />
       </button>
