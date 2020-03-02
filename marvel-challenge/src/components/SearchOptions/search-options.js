@@ -6,9 +6,9 @@ const SearchOptions = () => {
   // const [input, setInput] = useState('');
   return (
     <div className='button-warpper'>
-        <button className='filter-button'>
-          Filter <img src={filterPath} alt='Search' />
-        </button>
+      <button className='filter-button'>
+        Filter <img src={filterPath} alt='Search' />
+      </button>
     </div>
   )
 }

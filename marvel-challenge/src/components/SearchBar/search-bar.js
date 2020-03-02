@@ -7,9 +7,9 @@ const SearchBar = (props) => {
 
   return (
     <div className='search-border-wrap'>
-      <input className='search-bar-input' type='text' placeholder={props.placeholder} onChange={e => setInput(e.target.value)} value={input} />
+      <input className='search-bar-input' type='text' placeholder={props.placeholder} onChange={props.onChange} value={props.value} />
       <div className='button-wrapper'>
-        <button className='search-button'>
+        <button className='search-button' onClick={props.buttonAction}>
           <img src={searchPath} alt='Search'></img>
         </button>
       </div>

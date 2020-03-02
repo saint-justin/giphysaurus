@@ -15,14 +15,13 @@ class ImageLoader extends Component {
 
   render() {
     return (
-      <div>
         <img
+          className='image-loader'
           src={this.props.link}
           onLoad={this.imageLoaded.bind(this)}
           onError={this.imageError.bind(this)}
           alt='Animated GIF'
         />
-      </div>
     );
   }
 }
