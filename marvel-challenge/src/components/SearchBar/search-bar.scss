@@ -12,7 +12,7 @@
 .button-wrapper{ 
   border-radius: 0 100px 100px 0;
   background-color: #FFF;
-  width: 64px;
+  width: 54px*3;
 }
 
 .search-button{
@@ -28,6 +28,10 @@
   img {
     height: 24px;
     color: white;
+  }
+
+  h2{
+    margin-right: 12px;
   }
 }
 

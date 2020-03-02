@@ -19,6 +19,7 @@ $diag-gradient-active: linear-gradient( to bottom right, $active-pink, $active-b
 @import './components/SearchBar/search-bar.scss';
 @import './components/SearchOptions/search-options.scss';
 @import './components/ResultDisplay/result-display.scss';
+@import './components/ImageLoader/image-loader.scss';
 
 // Global styling rules
 *{
@@ -33,7 +34,7 @@ $diag-gradient-active: linear-gradient( to bottom right, $active-pink, $active-b
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Heebo"
+  font-family: "Heebo";
 }
 
 .bg-with-shapes{

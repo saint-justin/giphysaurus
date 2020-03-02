@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ImageLoader from '../image-loader';
+import ImageLoader from '../ImageLoader/image-loader';
 
 const ResultDisplay = (props) => {
   // Results is the JSON object that we got baclk

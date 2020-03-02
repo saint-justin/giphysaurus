@@ -1,0 +1,26 @@
+.image-loader{ 
+  display: flex;
+  width: 24%;
+  height: 40%;
+  margin-top: 1%;
+  overflow: hidden;
+}
+
+.loaded-image{ 
+  object-fit: cover;
+  // justify-content: center;
+  // display: block;
+  // margin: auto;
+}
+
+@media (max-width:1300px){
+  .image-loader{ 
+    width: 32.5%;
+  }
+}
+
+@media (max-width:1000px){
+  .image-loader{ 
+    width: 49%;
+  }
+}

@@ -24,7 +24,7 @@ const HomePage = () => {
   }
 
   function generateCards(response) {
-    // Catch any incorrect requests as they roll through
+    // Check to catch any incorrect requests as they roll through
     if (response.meta.status !== 200) {
       console.log(`ERROR ${response.meta.status}: ${response.meta.msg}`);
       return;
@@ -34,6 +34,11 @@ const HomePage = () => {
 
     setData(response);
     setSearchTerm(query);
+  }
+
+  function handleTextInput(e){
+    console.log(e);
+    setQuery(e.target.value);
   }
 
   // Functions to handle filters
@@ -54,7 +59,7 @@ const HomePage = () => {
             id='search-bar' 
             placeholder='Search for a gif...' 
             value = {query}
-            onChange = {(e) => setQuery(e.target.value)}
+            onChange = {(e) => handleTextInput(e)}
             buttonAction = {() => handleSubmit(query)}
           />
           <SearchOptions id='search-options' />

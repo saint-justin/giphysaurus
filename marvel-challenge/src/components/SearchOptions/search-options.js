@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import filterPath from '../../assets/search-solid.svg';
+import filterPath from '../../assets/filter-solid.svg';
 
 // Search bar to be used at the top of the site
 const SearchOptions = () => {
@@ -7,7 +7,7 @@ const SearchOptions = () => {
   return (
     <div className='button-warpper'>
       <button className='filter-button'>
-        Filter <img src={filterPath} alt='Search' />
+         <img src={filterPath} alt='Search' />
       </button>
     </div>
   )
