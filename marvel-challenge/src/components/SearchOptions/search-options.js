@@ -6,29 +6,31 @@ const SearchOptions = (props) => {
   // Denotes the actively selected value
   const [value, setValue] = useState(25);
   const [selected, setSelected] = useState([true, false, false, false])
+  const valueSet = [25, 50, 75, 100];
 
-  function handleClick(e){
-    console.log(e.target.value);
-    console.log('beep');
-
+  function handleClick(e) {
+    e.preventDefault();
+    
     let selectedArr = [false, false, false, false];
     selectedArr[e.target.value] = true;
     setSelected(selectedArr);
+  }
 
-    console.log(selectedArr);
-    console.log(e.target.selected);
+  // Generates a set of controlled components for the radio buttons
+  function generateButtons(selectedArr) {
+    let items = [];
+    for (let i = 0; i < 4; i++)
+      items.push(<div className='option-button-wrapper'><button value={i} className={`option-button-interior ${selectedArr[i] ? "selected" : "unselected"}`} selected={selectedArr[i]} onClick={e => handleClick(e)}>{valueSet[i]}</button></div>);
 
+    return <>{items}</>;
   }
 
   return (
-    <div className='search-options-row'>
+    <div className='search-options-container'>
       <h2>Section Title</h2>
-      <div className='search-option-buttons'>
-        <SearchOptionButtons text='25' value={0} selected={selected[0]} onClick={e => handleClick(e)}/>
-        <SearchOptionButtons text='50' value={1} selected={selected[1]} onClick={e => handleClick(e)}/>
-        <SearchOptionButtons text='75' value={2} selected={selected[2]} onClick={e => handleClick(e)}/>
-        <SearchOptionButtons text='100' value={3} selected={selected[3]} onClick={e => handleClick(e)}/>
-      </div>
+      <form className='search-option-buttons'>
+        {generateButtons(selected)}
+      </form>
     </div>
   )
 }

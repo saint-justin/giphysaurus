@@ -28,16 +28,42 @@
   background-image: $diag-gradient-active;
 }
 
-.search-options-row{
-  width: 90%;
-  margin: auto;
+.search-options-container{
+  width: 300px;
+  margin-left: auto;
+  margin-right: 5%;
+  // margin: auto;
   background-color: green;
 }
 
+.search-option-buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
+.option-button-wrapper{
+  // min-width: 64px;
+  width: 20%;
+  height: 32px;
+  border-radius: 100px;
+  background-image: $diag-gradient;
+  display: flex;
+  justify-content: center;
+  padding: 3px;
+}
+
+.option-button-interior{
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+}
+
 .selected{
-  background-color: orange;
+  background-image: $diag-gradient-dark;
+  border: none;
 }
 
 .unselected{
-  background-color: red;
+  background-color: $grey-80;
+  border: none;
 }

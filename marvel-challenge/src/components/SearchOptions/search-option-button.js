@@ -4,8 +4,10 @@ import React, { useState } from 'react';
 const SearchOptionButton = (props) => {
   const [selected, setSelected] = useState(props.selected);
 
-  function makeOnClick(parentFunction){
+  function makeOnClick(parentFunction) {
     return (e) => {
+      e.preventDefault();
+
       parentFunction(e);
       setSelected(!selected);
     }
