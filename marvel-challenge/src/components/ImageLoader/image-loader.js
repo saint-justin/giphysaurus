@@ -1,31 +1,17 @@
 
 import React, { Component } from "react";
 
-class ImageLoader extends Component {
-  // Initial state setup & state modification functions
-  state = { imageStatus: "loading" };
-
-  imageLoaded() {
-    this.setState({ imageStatus: "loaded" });
+const ImageLoader = (props) => {
+  const styles = {
+    backgroundImage: `url('${props.link}')`,
+    backgroundPosition: `center center`,
+    backgroundRepeat: `no-repeat`,
+    backgroundSize: `cover`
   }
 
-  imageError() {
-    this.setState({ imageStatus: "failed" });
-  }
-
-  render() {
-    return (
-      <a className='image-loader' href={this.props.src}>
-        <img
-          className='loaded-image'
-          src={this.props.link}
-          onLoad={this.imageLoaded.bind(this)}
-          onError={this.imageError.bind(this)}
-          alt='Animated GIF'
-        />
-      </a>
-    );
-  }
+  return (
+    <a className='image-loader' href={props.src} style={styles} />
+  );
 }
 export default ImageLoader;
 
