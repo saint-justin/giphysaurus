@@ -7,4 +7,4 @@ Justin Vaughn's entry for the Marvel Front-End Developer Challenge 2020. Still v
 ## Initial Design
 The initial design was done in Figma. Since starting development, the two designs have diverged but for any who want to see the original plan, open [the link here](https://www.figma.com/file/e2e4DHAFIPeIdRdD2yXnjV/Marvel-FED-Challenge?node-id=0%3A1).
 
-All icons used are made and owned by [Font Awesome](https://fontawesome.com/ "Font Awesome Homepage")
+All icons used are made and owned by [Font Awesome](https://fontawesome.com/ "Font Awesome Homepage").
