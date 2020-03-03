@@ -13,9 +13,7 @@ const SearchOptionButton = (props) => {
   }
 
   return (
-    <>
-      <button className={selected ? 'selected' : 'unselected'} onClick={makeOnClick(props.onClick)} value={props.value}>{props.text}</button>
-    </>
+    <button className={selected ? 'selected' : 'unselected'} onClick={makeOnClick(props.onClick)} value={props.value}>{props.text}</button>
   )
 }
 

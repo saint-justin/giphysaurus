@@ -14,20 +14,29 @@ const SearchOptions = (props) => {
     let selectedArr = [false, false, false, false];
     selectedArr[e.target.value] = true;
     setSelected(selectedArr);
+
+    props.activeButtonChanged(e.target.value);
   }
 
   // Generates a set of controlled components for the radio buttons
   function generateButtons(selectedArr) {
     let items = [];
     for (let i = 0; i < 4; i++)
-      items.push(<div className='option-button-wrapper'><button value={i} className={`option-button-interior ${selectedArr[i] ? "selected" : "unselected"}`} selected={selectedArr[i]} onClick={e => handleClick(e)}>{valueSet[i]}</button></div>);
+      items.push(
+      <div className='option-button-wrapper' key={`button-${i}`}>
+        <button value={i} 
+        className={`option-button-interior ${selectedArr[i] ? "selected" : "unselected"}`} 
+        selected={selectedArr[i]} 
+        onClick={e => handleClick(e)} 
+        onChange={e => props.onChange}>{valueSet[i]}</button>
+      </div>);
     return <>{items}</>;
   }
 
   return (
     <div className='search-options-wrapper'>
       <div className='search-options-container'>
-        <h2>Section Title</h2>
+        <h2>{props.title}</h2>
         <form className='search-option-buttons'>
           {generateButtons(selected)}
         </form>

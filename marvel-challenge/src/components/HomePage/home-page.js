@@ -13,6 +13,7 @@ const HomePage = () => {
   const [version, setVersion] = useState('v1');
   const [searchType, setSearchType] = useState('gifs');
   const [rating, setRating] = useState('G');
+  const [pagination, setPagination] = useState(25);
   const [query, setQuery] = useState(''); // query is the string that's submitted along with the request, updates every keystroke
   const [searchTerm, setSearchTerm] = useState(''); // searchTerm is the string that's given to the result display, only updates when query submitted 
   const [showOptions, setShowOptions] = useState(false);
@@ -20,7 +21,7 @@ const HomePage = () => {
   // Functions handling query submission and reception ---
   async function handleSubmit(_query) {
     console.log(ApiKey);
-    const URL = `https://api.giphy.com/${version}/${searchType}/search?api_key=${ApiKey}&q=${_query}&limit=25&offset=0&rating=${rating}&lang=en`;
+    const URL = `https://api.giphy.com/${version}/${searchType}/search?api_key=${ApiKey}&q=${_query}&limit=${pagination}&offset=0&rating=${rating}&lang=en`;
     let dataResponse = await fetch(URL);
     let dataAsJSON = await dataResponse.json();
     generateCards(dataAsJSON);
@@ -31,30 +32,37 @@ const HomePage = () => {
     if (response.meta.status !== 200) {
       console.log(`ERROR ${response.meta.status}: ${response.meta.msg}`);
       return; // TODO: Add in Noty for notifications
-    } 
+    }
     setData(response);
     setSearchTerm(query);
   }
 
+  // Updates the query state based on the text input in the input box
   function handleTextInput(e) {
     setQuery(e.target.value);
   }
 
+  // Checks every keystroke if enter has been pressed to fire off the API request
   function handleKeyDown(e) {
     if (e.key === 'Enter')
       handleSubmit(query);
   }
 
   // Functions to handle filters
-  function handleShowOptions(){
+  function handleShowOptions() {
     setShowOptions(!showOptions);
+  }
+
+  // Updates pagination limit based on which button is actively selected
+  function handleOptionsChange(activeButton) {
+    setPagination(25 + (25 * activeButton));
   }
 
   return (
     <>
       <div className='bg-with-shapes'>
         <div id='header'>
-          <h1 id='title-text'>SEARCH-A-ROO</h1>
+          <h1 id='title-text'>GIFAROO</h1>
           <div id='giphy-section'>
             <h2>POWERED BY</h2>
             <img src={GiphyLogo} alt='GIPHY'></img>
@@ -69,9 +77,9 @@ const HomePage = () => {
             buttonAction={() => handleSubmit(query)}
             keyDown={(e) => handleKeyDown(e)}
           />
-          <SearchOptionsToggle id='search-options' onClick={handleShowOptions}/>
+          <SearchOptionsToggle id='search-options' onClick={handleShowOptions} />
         </section>
-        {showOptions && <SearchOptions />}
+        {showOptions && <SearchOptions title='Images to Load:' activeButtonChanged={handleOptionsChange} />}
       </div>
       {data && <ResultDisplay title={`Showing results for '${searchTerm}':`} response={data} />}
     </>
