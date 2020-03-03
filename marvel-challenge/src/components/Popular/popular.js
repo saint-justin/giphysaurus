@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ResultDisplay from '../ResultDisplay/result-display.js';
-import ApiKey from '../../hidden/api-key.js';
+import ResultDisplay from '../ResultDisplay/result-display';
+import ApiKey from '../../hidden/api-key';
 
 const Popular = (props) => {
   const [data, setData] = useState(null);

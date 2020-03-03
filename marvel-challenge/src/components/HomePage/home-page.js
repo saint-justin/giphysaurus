@@ -5,8 +5,9 @@ import SearchBar from '../../components/SearchBar/search-bar';
 import SearchOptionsToggle from '../../components/SearchOptions/search-options-toggle';
 import SearchOptions from '../../components/SearchOptions/search-options';
 import ResultDisplay from '../../components/ResultDisplay/result-display';
-import GiphyLogo from '../../assets/giphy-logo.png';
+import Footer from '../../components/Footer/footer'
 
+import GiphyLogo from '../../assets/giphy-logo.png';
 import ApiKey from '../../hidden/api-key.js';
 
 const HomePage = () => {
@@ -24,11 +25,11 @@ const HomePage = () => {
   async function handleSubmit(_query, _paginationSize) {
     console.log(ApiKey);
     let url;
-    if(_paginationSize){
+    if (_paginationSize) {
       url = `https://api.giphy.com/${version}/${searchType}/search?api_key=${ApiKey}&q=${_query}&limit=${_paginationSize}&offset=0&rating=${rating}&lang=en`;
       setRecentRequestSize(_paginationSize);
     }
-    else{
+    else {
       url = `https://api.giphy.com/${version}/${searchType}/search?api_key=${ApiKey}&q=${_query}&limit=${pagination}&offset=0&rating=${rating}&lang=en`;
       setRecentRequestSize(pagination);
     }
@@ -36,7 +37,7 @@ const HomePage = () => {
     let dataAsJSON = await dataResponse.json();
     generateCards(dataAsJSON);
   }
-  
+
 
   function generateCards(response) {
     // Check to catch any invalid requests as they roll through
@@ -77,15 +78,15 @@ const HomePage = () => {
   function handleOptionsChange(activeValue) {
     console.log(activeValue);
 
-    if(typeof activeValue === 'number')
+    if (typeof activeValue === 'number')
       setPagination(activeValue);
     else
       setRating(activeValue.toLowerCase());
   }
 
   // Handles creating new notifications via Noty
-  function notify(_text){
-    new Noty({  
+  function notify(_text) {
+    new Noty({
       text: _text,
       timeout: 2500,
       theme: "nest"
@@ -113,8 +114,10 @@ const HomePage = () => {
           />
           <SearchOptionsToggle id='search-options' onClick={handleShowOptions} />
         </section>
-        {showOptions && <SearchOptions title='Images to Load:' activeButtonChanged={handleOptionsChange} valueSet={[25, 50, 75, 100]} />}
-        {showOptions && <SearchOptions title='Image Rating:' activeButtonChanged={handleOptionsChange} valueSet={['G', 'PG', 'PG-13', 'UNRATED']} />}
+        <div className="menu-options">
+          {showOptions && <SearchOptions title='Images Per Search:' activeButtonChanged={handleOptionsChange} valueSet={[25, 50, 75, 100]} />}
+          {showOptions && <SearchOptions title='Max Image Rating:' activeButtonChanged={handleOptionsChange} valueSet={['G', 'PG', 'PG-13', 'UNRATED']} />}
+        </div>
       </div>
       {data && <ResultDisplay title={`Showing results for '${searchTerm}':`} response={data} loadMoreFunction={handleLoadMore} expandable={true} />}
     </>

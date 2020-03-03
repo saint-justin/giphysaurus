@@ -85,3 +85,10 @@ $diag-gradient-active: linear-gradient( to bottom right, $active-pink, $active-b
    border: 1px solid #FFF;
    margin-bottom: 6px;
  }
+
+ .menu-options{
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-end;
+   margin: 0 5%;
+ }
