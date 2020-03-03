@@ -6,7 +6,7 @@ const SearchOptions = (props) => {
   // Denotes the actively selected value
   const [value, setValue] = useState(25);
   const [selected, setSelected] = useState([true, false, false, false])
-  const valueSet = [25, 50, 75, 100];
+  const valueSet = props.valueSet;
 
   function handleClick(e) {
     e.preventDefault();
@@ -15,7 +15,7 @@ const SearchOptions = (props) => {
     selectedArr[e.target.value] = true;
     setSelected(selectedArr);
 
-    props.activeButtonChanged(e.target.value);
+    props.activeButtonChanged(valueSet[e.target.value]);
   }
 
   // Generates a set of controlled components for the radio buttons

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Noty from 'noty';
 
 import SearchBar from '../../components/SearchBar/search-bar';
 import SearchOptionsToggle from '../../components/SearchOptions/search-options-toggle';
@@ -26,13 +27,19 @@ const HomePage = () => {
     let dataAsJSON = await dataResponse.json();
     generateCards(dataAsJSON);
   }
+  
 
   function generateCards(response) {
-    // Check to catch any incorrect requests as they roll through
+    // Check to catch any invalid requests as they roll through
     if (response.meta.status !== 200) {
-      console.log(`ERROR ${response.meta.status}: ${response.meta.msg}`);
-      return; // TODO: Add in Noty for notifications
+      notify(`ERROR ${response.meta.status}: ${response.meta.msg}`);
+      return;
+    } else if (response.data.length === 0) {
+      notify(`ERROR: Please include something in the search body.`);
+      return;
     }
+
+    // If the data is fine, set the response and query term into the display
     setData(response);
     setSearchTerm(query);
   }
@@ -54,8 +61,22 @@ const HomePage = () => {
   }
 
   // Updates pagination limit based on which button is actively selected
-  function handleOptionsChange(activeButton) {
-    setPagination(25 + (25 * activeButton));
+  function handleOptionsChange(activeValue) {
+    console.log(activeValue);
+
+    if(typeof activeValue === 'number')
+      setPagination(activeValue);
+    else
+      setRating(activeValue.toLowerCase());
+  }
+
+  // Handles creating new notifications via Noty
+  function notify(_text){
+    new Noty({  
+      text: _text,
+      timeout: 2500,
+      theme: "nest"
+    }).show();
   }
 
   return (
@@ -79,7 +100,8 @@ const HomePage = () => {
           />
           <SearchOptionsToggle id='search-options' onClick={handleShowOptions} />
         </section>
-        {showOptions && <SearchOptions title='Images to Load:' activeButtonChanged={handleOptionsChange} />}
+        {showOptions && <SearchOptions title='Images to Load:' activeButtonChanged={handleOptionsChange} valueSet={[25, 50, 75, 100]} />}
+        {showOptions && <SearchOptions title='Image Rating:' activeButtonChanged={handleOptionsChange} valueSet={['Y', 'G', 'PG', 'PG-13']} />}
       </div>
       {data && <ResultDisplay title={`Showing results for '${searchTerm}':`} response={data} />}
     </>
