@@ -24,7 +24,7 @@ const Popular = (props) => {
   return (
     <>
       {!data && <>Loading popular posts...</>}
-      {data && <ResultDisplay response={data} title='Top Posts:'/>}
+      {data && <ResultDisplay response={data} title='Trending Posts:' popular={true} />}
     </>
   )
 }

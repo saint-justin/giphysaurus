@@ -1,9 +1,16 @@
 .image-loader{ 
-  display: flex;
+  // display: flex;
   width: 24%;
   height: 40%;
   margin-top: 1%;
   overflow: hidden;
+}
+
+.popular-image{
+  box-sizing: border-box;
+  height: 100%;
+  margin-top: 0;
+  width: 100%;
 }
 
 .loaded-image{ 

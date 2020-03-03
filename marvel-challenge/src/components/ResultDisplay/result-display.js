@@ -8,16 +8,16 @@ const ResultDisplay = (props) => {
   const deerLink = 'https://media.giphy.com/media/hrv667Kot3KPlNxrNl/giphy.gif';
 
   let generateCardsFromResults = (_response) => {
-    if(_response === null)
+    if (_response === null)
       return <></>;
 
     console.log(_response);
     let count = _response.data.length;
     let arr = [];
-    for (let i = 0; i < count; i++) 
-      arr.push(<ImageLoader link={_response.data[i].images.original.url} key={i} src={_response.data[i].url}></ImageLoader>);
-    
-    if(props.expandable)
+    for (let i = 0; i < count; i++)
+      arr.push(<ImageLoader popular={props.popular} link={_response.data[i].images.original.url} key={i} src={_response.data[i].url}></ImageLoader>);
+
+    if (props.expandable)
       arr.push(<LoadMore link={deerLink} onClick={props.loadMoreFunction} />)
     return <>{arr}</>;
   };
@@ -25,9 +25,9 @@ const ResultDisplay = (props) => {
 
   return (
     <div className='results-wrapper'>
-      {props.title && <h2>{props.title}</h2>}
       <div className='gradient-wrapper'>
-        <div className='solid-wrapper'>
+        {props.title && <h2 className='display-title'>{props.title}</h2>}
+        <div className={`solid-wrapper ${props.popular ? 'popular-layout' : 'standard-layout'}`}>
           {generateCardsFromResults(props.response)}
         </div>
       </div>
