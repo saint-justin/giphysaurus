@@ -4,7 +4,7 @@ import filterPath from '../../assets/filter-solid.svg';
 import Noty from 'noty';
 
 // Search bar to be used at the top of the site
-const SearchOptions = () => {
+const SearchOptions = (props) => {
   // const [input, setInput] = useState('');
 
   function notify(){
@@ -20,7 +20,7 @@ const SearchOptions = () => {
 
   return (
     <div className='filter-wrapper'>
-      <button className='filter-button' onClick={() => notify()}>
+      <button className='filter-button' onClick={props.onClick}>
          <img src={filterPath} alt='Search' />
       </button>
     </div>

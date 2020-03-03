@@ -10,7 +10,7 @@ const SearchOptions = (props) => {
 
   function handleClick(e) {
     e.preventDefault();
-    
+
     let selectedArr = [false, false, false, false];
     selectedArr[e.target.value] = true;
     setSelected(selectedArr);
@@ -21,16 +21,17 @@ const SearchOptions = (props) => {
     let items = [];
     for (let i = 0; i < 4; i++)
       items.push(<div className='option-button-wrapper'><button value={i} className={`option-button-interior ${selectedArr[i] ? "selected" : "unselected"}`} selected={selectedArr[i]} onClick={e => handleClick(e)}>{valueSet[i]}</button></div>);
-
     return <>{items}</>;
   }
 
   return (
-    <div className='search-options-container'>
-      <h2>Section Title</h2>
-      <form className='search-option-buttons'>
-        {generateButtons(selected)}
-      </form>
+    <div className='search-options-wrapper'>
+      <div className='search-options-container'>
+        <h2>Section Title</h2>
+        <form className='search-option-buttons'>
+          {generateButtons(selected)}
+        </form>
+      </div>
     </div>
   )
 }

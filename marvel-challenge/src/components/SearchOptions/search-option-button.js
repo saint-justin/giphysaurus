@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import SearchOptions from './search-options-toggle';
 
 const SearchOptionButton = (props) => {
   const [selected, setSelected] = useState(props.selected);

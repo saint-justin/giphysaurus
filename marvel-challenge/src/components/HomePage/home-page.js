@@ -46,7 +46,9 @@ const HomePage = () => {
   }
 
   // Functions to handle filters
-
+  function handleShowOptions(){
+    setShowOptions(!showOptions);
+  }
 
   return (
     <>
@@ -67,9 +69,9 @@ const HomePage = () => {
             buttonAction={() => handleSubmit(query)}
             keyDown={(e) => handleKeyDown(e)}
           />
-          <SearchOptionsToggle id='search-options' />
+          <SearchOptionsToggle id='search-options' onClick={handleShowOptions}/>
         </section>
-        {<SearchOptions />}
+        {showOptions && <SearchOptions />}
       </div>
       {data && <ResultDisplay title={`Showing results for '${searchTerm}':`} response={data} />}
     </>
