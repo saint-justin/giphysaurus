@@ -15,15 +15,24 @@ const HomePage = () => {
   const [searchType, setSearchType] = useState('gifs');
   const [rating, setRating] = useState('G');
   const [pagination, setPagination] = useState(25);
+  const [recentRequestSize, setRecentRequestSize] = useState(0);
   const [query, setQuery] = useState(''); // query is the string that's submitted along with the request, updates every keystroke
   const [searchTerm, setSearchTerm] = useState(''); // searchTerm is the string that's given to the result display, only updates when query submitted 
   const [showOptions, setShowOptions] = useState(false);
 
   // Functions handling query submission and reception ---
-  async function handleSubmit(_query) {
+  async function handleSubmit(_query, _paginationSize) {
     console.log(ApiKey);
-    const URL = `https://api.giphy.com/${version}/${searchType}/search?api_key=${ApiKey}&q=${_query}&limit=${pagination}&offset=0&rating=${rating}&lang=en`;
-    let dataResponse = await fetch(URL);
+    let url;
+    if(_paginationSize){
+      url = `https://api.giphy.com/${version}/${searchType}/search?api_key=${ApiKey}&q=${_query}&limit=${_paginationSize}&offset=0&rating=${rating}&lang=en`;
+      setRecentRequestSize(_paginationSize);
+    }
+    else{
+      url = `https://api.giphy.com/${version}/${searchType}/search?api_key=${ApiKey}&q=${_query}&limit=${pagination}&offset=0&rating=${rating}&lang=en`;
+      setRecentRequestSize(pagination);
+    }
+    let dataResponse = await fetch(url);
     let dataAsJSON = await dataResponse.json();
     generateCards(dataAsJSON);
   }
@@ -58,6 +67,10 @@ const HomePage = () => {
   // Functions to handle filters
   function handleShowOptions() {
     setShowOptions(!showOptions);
+  }
+
+  function handleLoadMore() {
+    handleSubmit(query, recentRequestSize + 25);
   }
 
   // Updates pagination limit based on which button is actively selected
@@ -101,9 +114,9 @@ const HomePage = () => {
           <SearchOptionsToggle id='search-options' onClick={handleShowOptions} />
         </section>
         {showOptions && <SearchOptions title='Images to Load:' activeButtonChanged={handleOptionsChange} valueSet={[25, 50, 75, 100]} />}
-        {showOptions && <SearchOptions title='Image Rating:' activeButtonChanged={handleOptionsChange} valueSet={['Y', 'G', 'PG', 'PG-13']} />}
+        {showOptions && <SearchOptions title='Image Rating:' activeButtonChanged={handleOptionsChange} valueSet={['G', 'PG', 'PG-13', 'UNRATED']} />}
       </div>
-      {data && <ResultDisplay title={`Showing results for '${searchTerm}':`} response={data} />}
+      {data && <ResultDisplay title={`Showing results for '${searchTerm}':`} response={data} loadMoreFunction={handleLoadMore} expandable={true} />}
     </>
   )
 }

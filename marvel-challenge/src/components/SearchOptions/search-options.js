@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SearchOptionButtons from './search-option-button';
 
+// This component pulls up a set of filtering options for the user to select between before submitting a query
 const SearchOptions = (props) => {
 
   // Denotes the actively selected value

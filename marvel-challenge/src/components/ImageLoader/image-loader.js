@@ -1,7 +1,9 @@
 
-import React, { Component } from "react";
+import React from "react";
 
+// This component loads the individual images to the ResultDisplay components
 const ImageLoader = (props) => {
+  // Extra stylings to include the link in css
   const styles = {
     backgroundImage: `url('${props.link}')`,
     backgroundPosition: `center center`,
@@ -10,8 +12,9 @@ const ImageLoader = (props) => {
   }
 
   return (
-    <a className='image-loader' href={props.src} style={styles} />
+    <a className='image-loader' href={props.src} style={styles} onClick={props.onClick}/>
   );
 }
+
 export default ImageLoader;
 
