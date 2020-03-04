@@ -25,7 +25,7 @@ const ResultDisplay = (props) => {
 
   return (
     <div className='results-wrapper'>
-      <div className='gradient-wrapper'>
+      <div className={`gradient-wrapper ${props.popular && 'popular-wrapper'}`}>
         {props.title && <h2 className='display-title'>{props.title}</h2>}
         <div className={`solid-wrapper ${props.popular ? 'popular-layout' : 'standard-layout'}`}>
           {generateCardsFromResults(props.response)}
