@@ -19,14 +19,14 @@ const ResultDisplay = (props) => {
 
     // Add an optional tile onto the end to expand 
     if (props.expandable)
-      arr.push(<LoadMore link={deerLink} onClick={props.loadMoreFunction} />)
+      arr.push(<><br></br><LoadMore link={deerLink} onClick={props.loadMoreFunction} /></>)
 
     return <>{arr}</>;
   };
 
 
   return (
-    <div className='results-wrapper'>
+    <div className={`results-wrapper ${props.popular && 'popular-base-spacing'}`}>
       <div className={`gradient-wrapper ${props.popular && 'popular-wrapper'}`}>
         {props.title && <h2 className='display-title'>{props.title}</h2>}
         <div className={`solid-wrapper ${props.popular ? 'popular-layout' : 'standard-layout'}`}>

@@ -23,7 +23,7 @@ const Gallery = (props) => {
       <div className='gallery-image-wrapper'>
         <img src={props.links[0]} alt='Gallery Image' className='gallery-image'></img>
         <div className='gallery-links'>
-          <a className='gallery-btn' href={props.links[1]}><h2>GIPHY LINK</h2><img className='gallery-icon' src={IconLink} alt='Link to hosting site' /></a>
+          <a className='gallery-btn' href={props.links[1]}><h2>GIPHY LINK</h2></a>
         </div>
       </div>
     </div>

@@ -15,10 +15,10 @@ const ImageLoader = (props) => {
   }
 
   return (
-    <div className={`image-loader  ${props.popular && 'popular-image'} clickable`} 
-      // href={props.src} 
+    <div className={`image-loader  ${props.popular ? 'popular-image' : 'standard-image'} clickable`} 
       style={styles} 
-      onClick={props.onClick ? props.onClick : () => props.openGallery(props.link, props.src)} />
+      onClick={props.onClick ? props.onClick : () => props.openGallery(props.link, props.src)} 
+    />
   );
 }
 

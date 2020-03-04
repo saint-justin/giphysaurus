@@ -1,9 +1,11 @@
 .image-loader{ 
-  // display: flex;
   width: 24%;
-  height: 40%;
   margin-top: 1%;
   overflow: hidden;
+}
+
+.standard-image{
+  max-height: 40%;
 }
 
 .popular-image{
