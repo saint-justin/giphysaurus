@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ImageLoader from '../ImageLoader/image-loader';
 import LoadMore from '../ImageLoader/load-more-button';
 
+// This component takes in the response data we get and turns it into the card layouts displayed
 const ResultDisplay = (props) => {
-  // Results is the JSON object that we got back
   const [response, setResponse] = useState(props.results);
   const deerLink = 'https://media.giphy.com/media/hrv667Kot3KPlNxrNl/giphy.gif';
 
@@ -11,14 +11,16 @@ const ResultDisplay = (props) => {
     if (_response === null)
       return <></>;
 
-    console.log(_response);
+    // console.log(_response);
     let count = _response.data.length;
     let arr = [];
     for (let i = 0; i < count; i++)
-      arr.push(<ImageLoader popular={props.popular} link={_response.data[i].images.original.url} key={i} src={_response.data[i].url}></ImageLoader>);
+      arr.push(<ImageLoader popular={props.popular} link={_response.data[i].images.original.url} key={i} src={_response.data[i].url} openGallery={props.openGallery}></ImageLoader>);
 
+    // Add an optional tile onto the end to expand 
     if (props.expandable)
       arr.push(<LoadMore link={deerLink} onClick={props.loadMoreFunction} />)
+
     return <>{arr}</>;
   };
 

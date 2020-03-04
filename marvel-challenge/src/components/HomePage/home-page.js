@@ -21,7 +21,7 @@ const HomePage = () => {
   const [query, setQuery] = useState(''); // query is the string that's submitted along with the request, updates every keystroke
   const [searchTerm, setSearchTerm] = useState(''); // searchTerm is the string that's given to the result display, only updates when query submitted 
   const [showOptions, setShowOptions] = useState(false);
-  const [galleryLink, setGalleryLink] = useState('');
+  const [galleryLinks, setGalleryLinks] = useState(null);
 
   // Functions handling query submission and reception ---
   async function handleSubmit(_query, _paginationSize) {
@@ -95,9 +95,18 @@ const HomePage = () => {
     }).show();
   }
 
+  function handleOpenGallery(_image, _source){
+    console.log(`Link pulled: ${_image}`)
+    setGalleryLinks([_image, _source]);
+  }
+
+  function handleCloseGallery(){
+    setGalleryLinks(null);
+  }
+
   return (
     <>
-      {galleryLink && <Gallery link={galleryLink} />}
+      {galleryLinks && <Gallery links={galleryLinks} closeGallery={handleCloseGallery}/>}
       <div className='bg-with-shapes'>
         <div id='header'>
           <h1 id='title-text'>GIFASAURUS</h1>
@@ -122,8 +131,8 @@ const HomePage = () => {
           {showOptions && <SearchOptions title='Max Image Rating:' activeButtonChanged={handleOptionsChange} valueSet={['G', 'PG', 'PG-13', 'UNRATED']} />}
         </div>
       </div>
-      {data && <ResultDisplay title={`Showing results for '${searchTerm}':`} response={data} loadMoreFunction={handleLoadMore} expandable={true} />}
-      <Popular />
+      {data && <ResultDisplay title={`Showing results for '${searchTerm}':`} response={data} loadMoreFunction={handleLoadMore} expandable={true} openGallery={handleOpenGallery} />}
+      <Popular openGallery={handleOpenGallery} />
     </>
   )
 }

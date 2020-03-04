@@ -3,7 +3,7 @@
   bottom: 0;
   width: 100vw;
   height: 100vh;
-  background-color: orange;
+  background-color: $grey-90-halftone;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,6 +29,8 @@
   background-color: $dark-pink;
   display: flex;
   justify-content: center;
+  box-sizing: border-box;
+  text-decoration: none;
 
   .gallery-icon{
     height: 28px;
