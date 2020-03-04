@@ -5,6 +5,8 @@ Justin Vaughn's entry for the Marvel Front-End Developer Challenge 2020. Still v
 `React JS`, `SASS` as a CSS Precompiler, and Figma for initial design work. The majority of components are functional with made with hooks for code simplicity. 
 
 ## Demo Instructions
+There's two ways to check out this app. The easier of the two is to hop on over to my website and check out the [live demo here](http://jvaughn.org/giphysaurus/). The second option is to download, install, and run the project on your own computer, steps listed below.
+
 To run this project locally, please follow these steps:
 1. Download the repo in it's totality with the green "Clone or Download" button above.
 2. Create a folder on your computer and unzip the download into said folder. Inside the folder you just unzipped the project to, there should only be a single folder named `marvel-fed-challenge-2020-master`.
