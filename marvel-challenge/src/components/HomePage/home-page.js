@@ -5,7 +5,8 @@ import SearchBar from '../../components/SearchBar/search-bar';
 import SearchOptionsToggle from '../../components/SearchOptions/search-options-toggle';
 import SearchOptions from '../../components/SearchOptions/search-options';
 import ResultDisplay from '../../components/ResultDisplay/result-display';
-import Footer from '../../components/Footer/footer'
+import Gallery from '../../components/Gallery/gallery';
+import Popular from '../../components/Popular/popular';
 
 import GiphyLogo from '../../assets/giphy-logo.png';
 import ApiKey from '../../hidden/api-key.js';
@@ -20,6 +21,7 @@ const HomePage = () => {
   const [query, setQuery] = useState(''); // query is the string that's submitted along with the request, updates every keystroke
   const [searchTerm, setSearchTerm] = useState(''); // searchTerm is the string that's given to the result display, only updates when query submitted 
   const [showOptions, setShowOptions] = useState(false);
+  const [galleryLink, setGalleryLink] = useState('');
 
   // Functions handling query submission and reception ---
   async function handleSubmit(_query, _paginationSize) {
@@ -95,9 +97,10 @@ const HomePage = () => {
 
   return (
     <>
+      {galleryLink && <Gallery link={galleryLink} />}
       <div className='bg-with-shapes'>
         <div id='header'>
-          <h1 id='title-text'>GIFAROO</h1>
+          <h1 id='title-text'>GIFASAURUS</h1>
           <div id='giphy-section'>
             <h2>POWERED BY</h2>
             <img src={GiphyLogo} alt='GIPHY'></img>
@@ -120,6 +123,7 @@ const HomePage = () => {
         </div>
       </div>
       {data && <ResultDisplay title={`Showing results for '${searchTerm}':`} response={data} loadMoreFunction={handleLoadMore} expandable={true} />}
+      <Popular />
     </>
   )
 }

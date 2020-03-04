@@ -24,6 +24,9 @@ $diag-gradient-active: linear-gradient( to bottom right, $active-pink, $active-b
 @import './components/ImageLoader/image-loader.scss';
 @import './components/Footer/footer.scss';
 @import './components/Popular/popular.scss';
+@import './components/HomePage/home-page.scss';
+@import './components/Gallery/gallery.scss';
+
 
 // Global styling rules
 *{
@@ -33,7 +36,6 @@ $diag-gradient-active: linear-gradient( to bottom right, $active-pink, $active-b
 }
 
 // App.scss specific stylings
-
 #app{
   display: flex;
   flex-direction: column;
@@ -41,42 +43,8 @@ $diag-gradient-active: linear-gradient( to bottom right, $active-pink, $active-b
   font-family: "Heebo";
 }
 
-.bg-with-shapes{
-  width: 80%;
-  background-image: url('./assets/dinos-bg-overlay-small.png');
-  background-color: $grey-90;  
-  border-radius: 0 0 50px 50px;
-  padding-bottom: 10px;
-}
-
-#header{
-  padding-top: 64px;
-  display: flex;
-  flex-direction: row;
-
-  #title-text{
-    font-size: 52px;
-    font-weight: 1000;
-    margin: 0 10px 0 5%;
-    padding-left: 32px;
-    letter-spacing: 2px;
-  }
-
-  #giphy-section h2{
-    font-size: 16px;
-    font-weight: 500;
-    margin-top: 16px;
-  }
-}
-
-.search-row{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-self: center;
-  box-sizing: border-box;
-  padding: 0 5%;
-  margin-bottom: 16px;
+.clickable{
+  cursor: pointer;
 }
 
  // Noty stylings
@@ -95,6 +63,3 @@ $diag-gradient-active: linear-gradient( to bottom right, $active-pink, $active-b
    margin: 0 5%;
  }
 
- .clickable{
-   cursor: pointer;
- }

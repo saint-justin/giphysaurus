@@ -1,7 +1,6 @@
 // Main imports
 import React from 'react';
 import HomePage from './components/HomePage/home-page';
-import Popular from './components/Popular/popular';
 import Footer from './components/Footer/footer';
 
 // Styling & icon imports
@@ -13,7 +12,6 @@ function app() {
   return (
     <div id='app'>
       <HomePage />
-      <Popular />
       <Footer />
     </div>
   );

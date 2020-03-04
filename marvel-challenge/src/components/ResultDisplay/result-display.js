@@ -3,7 +3,7 @@ import ImageLoader from '../ImageLoader/image-loader';
 import LoadMore from '../ImageLoader/load-more-button';
 
 const ResultDisplay = (props) => {
-  // Results is the JSON object that we got baclk
+  // Results is the JSON object that we got back
   const [response, setResponse] = useState(props.results);
   const deerLink = 'https://media.giphy.com/media/hrv667Kot3KPlNxrNl/giphy.gif';
 
