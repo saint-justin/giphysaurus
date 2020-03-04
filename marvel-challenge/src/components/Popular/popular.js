@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ResultDisplay from '../ResultDisplay/result-display';
 import ApiKey from '../../hidden/api-key';
 
+// Displays a set of slivers as previews for the currently trending posts
 const Popular = (props) => {
   const [data, setData] = useState(null);
   const [loaded, setLoaded] = useState(false);

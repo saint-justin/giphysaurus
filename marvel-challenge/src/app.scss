@@ -1,4 +1,4 @@
-// Variables
+// Variables that are used throughout all scss files
 $grey-90: #090B0C;
 $grey-80: #121619;
 $grey-60: #586262;
@@ -23,6 +23,7 @@ $diag-gradient-active: linear-gradient( to bottom right, $active-pink, $active-b
 @import './components/ResultDisplay/result-display.scss';
 @import './components/ImageLoader/image-loader.scss';
 @import './components/Footer/footer.scss';
+@import './components/Popular/popular.scss';
 
 // Global styling rules
 *{
@@ -92,4 +93,8 @@ $diag-gradient-active: linear-gradient( to bottom right, $active-pink, $active-b
    flex-direction: row;
    justify-content: flex-end;
    margin: 0 5%;
+ }
+
+ .clickable{
+   cursor: pointer;
  }

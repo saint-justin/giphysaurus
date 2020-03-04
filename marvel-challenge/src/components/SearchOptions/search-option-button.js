@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// These are the individual clickable buttons within the filter breakout
 const SearchOptionButton = (props) => {
   const [selected, setSelected] = useState(props.selected);
 

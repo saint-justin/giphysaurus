@@ -16,7 +16,7 @@ const SearchBar = (props) => {
         onKeyPress={props.keyDown}
       />
       <div className='button-wrapper'>
-        <button className='search-button' onClick={props.buttonAction}>
+        <button className='search-button clickable' onClick={props.buttonAction}>
           <h2>Search</h2> <img src={searchPath} alt='Search'></img>
         </button>
       </div>

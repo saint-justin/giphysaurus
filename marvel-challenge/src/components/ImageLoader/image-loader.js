@@ -14,24 +14,8 @@ const ImageLoader = (props) => {
     backgroundSize: `cover`
   }
 
-  // // Get the dimensions of the image so we can blow it up when hovered
-  // useEffect(() => {
-  //     if (!dimensionsAcquired) {
-  //       let image = new Image();
-  //       image.onload = () => {
-  //         setDimensions(this.width, this.height);
-  //       }
-  //       image.src = props.link;
-  //     }
-  //   }
-  // )
-
-  // function setDimensions(width, height){
-  //   setImageDimensions([width, height])
-  // }
-
   return (
-    <a className={`image-loader  ${props.popular && 'popular-image'}`} href={props.src} style={styles} onClick={props.onClick} />
+    <a className={`image-loader  ${props.popular && 'popular-image'} ${props.onClick && 'clickable'}`} href={props.src} style={styles} onClick={props.onClick} />
   );
 }
 

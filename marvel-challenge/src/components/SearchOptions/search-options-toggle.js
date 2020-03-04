@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import filterPath from '../../assets/filter-solid.svg';
 
-
-// Search bar to be used at the top of the site
+// This is the button that toggles the visibility of the search options
 const SearchOptions = (props) => {
   return (
     <div className='filter-wrapper'>
-      <button className='filter-button' onClick={props.onClick}>
+      <button className='filter-button clickable' onClick={props.onClick}>
          <img src={filterPath} alt='Search' />
       </button>
     </div>
