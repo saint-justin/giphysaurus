@@ -5,7 +5,7 @@ Justin Vaughn's entry for the Marvel Front-End Developer Challenge 2020. Still v
 `React JS`, `SASS` as a CSS Precompiler, and Figma for initial design work. The majority of components are functional with made with hooks for code simplicity. 
 
 ## Demo Instructions
-To run this project locally, please follow the coming set of steps:
+To run this project locally, please follow these steps:
 1. Download the repo in it's totality with the green "Clone or Download" button above.
 2. Create a folder on your computer and unzip the download into said folder (inside the folder you created, there should just be one folder named "marvel-fed-challenge-2020-master"
 3. Open into the folder named "marvel-fed-challenge-2020-master", open the folder inside that one named "marvel-challenge", and open your IDE of choise in that folder (I'd reccomend opening the project in VS Code, and running the terminal in the "marvel-challenge" folder in there).
