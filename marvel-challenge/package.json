@@ -2,6 +2,7 @@
   "name": "marvel-challenge",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://jvaughn.org/giphysaurus/",
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.12.1",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",

@@ -25,14 +25,13 @@ const HomePage = () => {
 
   // Functions handling query submission and reception ---
   async function handleSubmit(_query, _paginationSize) {
-    console.log(ApiKey);
     let url;
     if (_paginationSize) {
-      url = `https://api.giphy.com/${version}/${searchType}/search?api_key=${ApiKey}&q=${_query}&limit=${_paginationSize}&offset=0&rating=${rating}&lang=en`;
+      url = `//api.giphy.com/${version}/${searchType}/search?api_key=${ApiKey}&q=${_query}&limit=${_paginationSize}&offset=0&rating=${rating}&lang=en`;
       setRecentRequestSize(_paginationSize);
     }
     else {
-      url = `https://api.giphy.com/${version}/${searchType}/search?api_key=${ApiKey}&q=${_query}&limit=${pagination}&offset=0&rating=${rating}&lang=en`;
+      url = `//api.giphy.com/${version}/${searchType}/search?api_key=${ApiKey}&q=${_query}&limit=${pagination}&offset=0&rating=${rating}&lang=en`;
       setRecentRequestSize(pagination);
     }
     let dataResponse = await fetch(url);
@@ -78,8 +77,6 @@ const HomePage = () => {
 
   // Updates pagination limit based on which button is actively selected
   function handleOptionsChange(activeValue) {
-    console.log(activeValue);
-
     if (typeof activeValue === 'number')
       setPagination(activeValue);
     else
@@ -96,7 +93,6 @@ const HomePage = () => {
   }
 
   function handleOpenGallery(_image, _source){
-    console.log(`Link pulled: ${_image}`)
     setGalleryLinks([_image, _source]);
   }
 
