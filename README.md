@@ -1,5 +1,4 @@
-# Justin Vaughn, Marvel FED Challenge 2020
-Justin Vaughn's entry for the Marvel Front-End Developer Challenge 2020. Still very much a work in progress, repo will be added to more and more as the project progresses.
+![Giphasaurus Banner](http://jvaughn.org/giphysaurus/static/media/md_banner.png)
 
 ## Tech Stack
 `React JS`, `SASS` as a CSS Precompiler, and Figma for initial design work. The majority of components are functional with made with hooks for code simplicity. 
