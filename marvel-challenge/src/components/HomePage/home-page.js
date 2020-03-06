@@ -12,9 +12,12 @@ import GiphyLogo from '../../assets/giphy-logo.png';
 import ApiKey from '../../hidden/api-key.js';
 
 const HomePage = () => {
+  // Query URL variables that can be changed in the future if desired
+  const version = 'v1';
+  const searchType = 'gifs';
+
+  // State setup
   const [data, setData] = useState(null);
-  const [version, setVersion] = useState('v1');
-  const [searchType, setSearchType] = useState('gifs');
   const [rating, setRating] = useState('G');
   const [pagination, setPagination] = useState(25);
   const [recentRequestSize, setRecentRequestSize] = useState(0);
@@ -23,7 +26,7 @@ const HomePage = () => {
   const [showOptions, setShowOptions] = useState(false);
   const [galleryLinks, setGalleryLinks] = useState(null);
 
-  // Functions handling query submission and reception ---
+  // Handles the user doing any sort of submissiona action (pressing enter, clicking search, etc.)
   async function handleSubmit(_query, _paginationSize) {
     let url;
     if (_paginationSize) {
@@ -39,14 +42,14 @@ const HomePage = () => {
     generateCards(dataAsJSON);
   }
 
-
+  // Generates cards based on the data passed in 
   function generateCards(response) {
     // Check to catch any invalid requests as they roll through
     if (response.meta.status !== 200) {
       notify(`ERROR ${response.meta.status}: ${response.meta.msg}`);
       return;
     } else if (response.data.length === 0) {
-      notify(`ERROR: Please include something in the search body.`);
+      notify(`ERROR: No results found. Please change your submission text and try again.`);
       return;
     }
 
@@ -84,10 +87,10 @@ const HomePage = () => {
   }
 
   // Handles creating new notifications via Noty
-  function notify(_text) {
+  function notify(_text, _timeout=2500) {
     new Noty({
       text: _text,
-      timeout: 2500,
+      timeout: _timeout,
       theme: "nest"
     }).show();
   }

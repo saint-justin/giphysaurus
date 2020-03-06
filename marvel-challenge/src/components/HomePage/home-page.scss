@@ -10,6 +10,7 @@
   padding-top: 64px;
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
 
   #title-text{
     font-size: 48px;
@@ -28,7 +29,6 @@
     h2{
       font-size: 18px;
       font-weight: 500;
-      margin-top: 16px;
     }
   } 
 }
